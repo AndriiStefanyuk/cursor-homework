@@ -67,7 +67,7 @@ let totalAmountWithDiscount = (
 ).toFixed(2);
 console.log(totalAmountWithDiscount);
 
-let changeIfDiscountIsIncluded = moneyFromClient - totalAmountWithDiscount;
+let changeIfDiscountIsIncluded = (moneyFromClient - totalAmountWithDiscount).toFixed(2);
 
 let lostProfit = (totalPriceOfGoods / 2 - randomDiscountInHryvnia).toFixed(2);
 console.log(lostProfit);
@@ -84,7 +84,7 @@ function toShowResult() {
 Середня ціна становить: ${averagePrice} грн;<br/>
 Знижка клієнту становить: ${randomDiscountInPercents} %, ${randomDiscountInHryvnia} грн;<br/>
 До сплати зі знижкою: ${totalAmountWithDiscount} грн;<br/>
-Сума здачі з ${moneyFromClient}: ${changeIfDiscountIsIncluded} грн;<br/>
+Сума здачі з ${moneyFromClient} грн: ${changeIfDiscountIsIncluded} грн;<br/>
 Втрачена вигода становить: ${lostProfit} грн;</h3>`;
   document.getElementById("result").innerHTML = listOfResults;
 }
