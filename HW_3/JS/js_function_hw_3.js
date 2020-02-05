@@ -48,17 +48,17 @@ console.log(pureSalary(12987));
 
 //5 Создать функцию, которая возвращает случайное целое число в диапазоне от N до M.
 //Пример: <сode>getRandomNumber(1, 10) -> 5
-// function getRandomNumber(N, M) {
-//   if (N >= M) {
-//     let max = N;
-//     let min = M;
-//   } else {
-//     max = M;
-//     min = N;
-//   }
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-// console.log(getRandomNumber(15, 15));
+function getRandomNumber(N, M) {
+  if (N >= M) {
+    let max = N;
+    let min = M;
+  } else {
+    max = M;
+    min = N;
+  }
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(getRandomNumber(13, 15));
 
 //6 Создать функцию, которая считает сколько раз определенная буква повторяется в слове.
 //Пример: countLetter("а", "Асталависта") -> 4
@@ -81,9 +81,7 @@ console.log(countLetter("а", "Асталависта"));
 
 function convertCurrency(str) {
   let dollarToHryvnia = str.search(/\$/i);
-  //console.log(dollarToHryvnia);
   let hryvniaToDollar = str.search(/uah/i);
-  console.log(hryvniaToDollar);
   if (dollarToHryvnia >= 0) {
     let amoundInHryvnia = (parseInt(str) * 25).toFixed(2);
     return amoundInHryvnia;
@@ -91,7 +89,7 @@ function convertCurrency(str) {
     let amoundInDollar = (parseInt(str) / 25).toFixed(2);
     return amoundInDollar;
   } else {
-    alert("We can exchange only $ and UAH, make your choice");
+    return "We can exchange only $ and UAH, make your choice";
   }
 }
 
@@ -101,15 +99,18 @@ console.log(convertCurrency("1000uh"));
 или по умолчанию = 8 символам.
 Пример: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
 */
-//Переробити на pure
+
 function makeRandomPassword(digitals = 8) {
   let randomPassword = "";
+  if (digitals === 0) {
+    return "Password should has at least one digit";
+  }
   for (let i = 1; i <= digitals; i++) {
     randomPassword += Math.floor(Math.random() * 10);
   }
   return randomPassword;
 }
-console.log(makeRandomPassword(0));
+console.log(makeRandomPassword(4));
 //доробити видачу помилки у випадку вводу 0
 
 //9 Создайте функцию, которая удаляет все буквы из предложения. Пример: deleteLetters('a', "blablabla") -> "blblbl"
@@ -133,7 +134,6 @@ function isPalyndrom(str) {
   let reversedStr = "";
   for (let i = str.length - 1; i >= 0; i--) {
     reversedStr += str.charAt(i);
-    //console.log(reversedStr);
   }
   return str === reversedStr
     ? `${str} є поліндромом`
