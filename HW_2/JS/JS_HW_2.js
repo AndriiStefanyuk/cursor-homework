@@ -37,11 +37,24 @@ function getFirstNumber() {
   do {
     N = prompt("please enter a First number", "4");
     firstNumber = parseInt(N);
-  } while (N !== null && isNaN(firstNumber) !== false);
+
+    if (isNaN(firstNumber) === false && firstNumber !== parseFloat(N)) {
+      alert("Number should be integer, not float");
+    }
+  } while (
+    (N !== null && isNaN(firstNumber) !== false) ||
+    (firstNumber !== parseFloat(N) && N !== null)
+  );
 }
 function getSecondNumber() {
   do {
     M = prompt("please enter a Second number", "6");
     secondNumber = parseInt(M);
-  } while (M !== null && isNaN(secondNumber) !== false);
+    if (isNaN(secondNumber) === false && secondNumber !== parseFloat(M)) {
+      alert("Number should be integer, not float");
+    }
+  } while (
+    (M !== null && isNaN(secondNumber) !== false) ||
+    (secondNumber !== parseFloat(M) && M !== null)
+  );
 }
