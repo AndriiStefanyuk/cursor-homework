@@ -140,3 +140,21 @@ function isPalyndrom(str) {
     : `${str} НЕ є поліндромом`;
 }
 console.log(isPalyndrom("мадамa"));
+
+// 11 Создайте функцию, которая удалит из предложения буквы, которые встречаются более 1 раза.
+//Пример: deleteDuplicateLetter("Бисквит был очень нежный") -> "сквтлчьжй"
+
+function deleteDuplicateLetter(str) {
+  let resStr = "";
+  let checkedChar = [];
+
+  for (let i = 0; i < str.length; i++) {
+    let reg = new RegExp(str[i], "ig");
+    checkedChar = str.match(reg);
+    if (checkedChar.length === 1) {
+      resStr += str[i];
+    }
+  }
+  return resStr;
+}
+console.log(deleteDuplicateLetter("Бисквит был очень нежный"));
