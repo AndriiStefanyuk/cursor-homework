@@ -60,7 +60,7 @@ function getMarksForProject(pairsWithThems) {
 
   for (i = 0; i < pairsWithThems.length; i++) {
     rangomMarks = Math.floor(Math.random() * 5 + 1);
-    pairsMarks[i] = [pairsWithThems[i].concat(rangomMarks)];
+    pairsMarks[i] = pairsWithThems[i].concat(rangomMarks);
   }
   return pairsMarks;
 }
